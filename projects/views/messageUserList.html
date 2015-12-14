@@ -1,0 +1,82 @@
+<div id="userinformation-page">
+    <!--<div class="userinformation-page">-->
+    <div id="search">
+        <div ng-show="isLoading" class="bigLoading">
+
+        </div>
+        <!--<input type="search" id="search_text" ng-model="query" placeholder="输入想要查找的内容">-->
+
+        <!--<div class="btn-group">-->
+        <!--<button class="btn dropdown-toggle" data-toggle="dropdown">-->
+        <!--{{type_name}}-->
+        <!--<span class="caret"></span>-->
+        <!--</button>-->
+        <!--<ul class="dropdown-menu">-->
+        <!--<li><a href="" ng-click="type = '_id'; type_name='用户id'">用户id</a></li>-->
+        <!--<li><a href="" ng-click="type = 'username'; type_name='用户名'">用户名</a></li>-->
+        <!--<li><a href="" ng-click="type = 'level'; type_name='用户权限'">用户权限</a></li>-->
+        <!--<li><a href="" ng-click="type = 'openAdmin'; type_name='开户人'">开户人</a></li>-->
+        <!--</ul>-->
+        <!--</div>-->
+        <!--<button class="btn dropdown-toggle" data-toggle="dropdown" ng-click="search()">搜索</button>-->
+        <!--</div>-->
+        <!--<div id="addUser">-->
+        <!--<a href="#/addUser">-->
+        <!--<input type="button" class="btn dropdown-toggle" data-toggle="dropdown" id="adduserbtn" value="增加用户"/>-->
+        <!--</a>-->
+        <!--</div>-->
+    </div>
+
+    <div class="userinformation-page">
+        <table id="user-list">
+            <thead>
+            <tr>
+                <th>name</th>
+                <th>message</th>
+                <th>appID</th>
+                <th>userID</th>
+                <th>mqttID</th>
+                <th>systemType</th>
+                <th>status</th>
+                <th>createTime</th>
+                <th>updateTime</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="message in MessageUserList" class="tditem">
+                <td>{{message.name}}</td>
+                <td>{{message.message}}</td>
+                <td>{{message.appID}}</td>
+                <td>{{message.userID}}</td>
+                <td>{{message.mqttID}}</td>
+                <td>{{message.systemType}}</td>
+                <td>{{message.status}}</td>
+                <td>{{message.createTime | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+                <td>{{message.updateTime | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+
+            </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+    <!-- <nav class="table table-striped table-bordered" ng-if="count > searchParams.limit"> -->
+    <nav class="table table-striped table-bordered">
+        <div class="input-group">
+                <span class="input-group-addon" style="align:center">
+                    <button class="btn btn-default btn-sm" ng-click="pageChange(1)">首页</button>
+                    <button class="btn btn-default btn-sm" ng-click="pageChange(searchParams.pageNum - 1)">上一页</button>
+                    <button class="btn btn-default btn-sm" ng-click="pageChange(searchParams.pageNum)">前往</button>
+                    第<input type="text" style="width: 50px" ng-model="searchParams.pageNum">/<!-- {{Math.ceil(count / searchParams.limit)}} -->{{searchParams.total}}页
+                    <button class="btn btn-default btn-sm" ng-click="pageChange(searchParams.pageNum + 1)">下一页</button>
+                    <!-- <button class="btn btn-default btn-sm" ng-click="pageChange(Math.ceil(count / searchParams.limit))">末页</button> -->
+                    <button class="btn btn-default btn-sm" ng-click="pageChange(searchParams.total)">末页</button>
+                </span>
+        </div>
+    </nav>
+
+
+</div>
+</div>
+
+

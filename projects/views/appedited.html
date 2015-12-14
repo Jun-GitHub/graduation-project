@@ -1,0 +1,115 @@
+<div id="appEdit-content">
+    <!--<form action="" name="appEditForm">-->
+        <div class="submitApp">
+            <input type="submit" id="submitAppEdit" class="btn btn-default btn-sm" value="更新" ng-click="save_edit()"/>
+        </div>
+        <div id="appEdit">
+
+            <table id="appEdit_table">
+                <tr>
+                    <td class="label-td">应用名称:</td>
+                    <!-- <td class="appEdit-td"><input type="text" id="appName" ng-model="appname" readonly > </td> -->
+                    <td class="appEdit-td"><input type="text" id="edit_appName" ng-model="appName" readonly></td>
+                </tr>
+                <tr>
+                    <td class="label-td">应用icon图:</td>
+                    <td class="appEdit-td">
+
+                        <div id="imageView_container">
+                            <img src="{{imageUrl.text}}" id="appicon"/>
+                        </div>
+                        <div id="scanicon">
+                            <input type="file" name="file" id="get-appicon"/>
+                        </div>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label-td">应用描述:</td>
+                    <td class="appEdit-td"><input type="text" id="Description" ng-model="appDescription" required/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label-td">版本类型:</td>
+                    <td  id="systemType">
+
+                        <input type="checkbox" name="systemType" ng-model="ios_test.value" id="ios"
+                               onclick="iosSystemE()" value="ios"/>ios
+                        &nbsp;&nbsp;
+                        <input type="checkbox" name="systemType" ng-model="android_test.value" id="android"
+                               onclick="androidSystemE()" value="android"/>android
+                    </td>
+                </tr>
+            </table>
+
+            <div id="deviceInformation-div">
+                <div id="iosDiv">
+                    <div id="status">
+                        <label class="padding_right">部署状态:</label>
+                        &nbsp;&nbsp;
+                        <input type="radio" name="status" ng-model="production_ios.value" ng-click="testShow()" value="false"/>开发状态
+                        &nbsp;&nbsp;
+                        <input type="radio" name="status" ng-model="production_ios.value" ng-click="testHide()" value="true"/>生产状态
+                    </div>
+                    <div ng-show="test_show">
+                        <label class="padding_right">开发证书:</label>
+                        &nbsp;&nbsp;
+                        <span class="alert-warning">{{remind.text}}</span>
+
+                        <div class="file-panel">
+                            <label>test_cert_pem:</label>
+                            <input type="file" id="test_cert_pem_input" name="test_cert_pem" value="浏览"/>
+                        </div>
+                        <div class="file-panel">
+                            <label>test_key_pem:</label>
+                            <input type="file" id="test_key_pem_input" name="test_key_pem" value="浏览"/>
+                        </div>
+                        <!--<label >应用SDK:</label>-->
+
+                        <!--<div class="file-panel">-->
+                            <!--<label>ios_test_zip:</label>-->
+                            <!--<input type="file" id="ios_test_zip_input" name="ios_test_zip" value="浏览"/>-->
+                        <!--</div>-->
+                    </div>
+                    <div ng-hide="test_hide">
+                        <label class="padding_right">生产证书:</label>
+                        &nbsp;&nbsp;
+                        <span class="alert-warning">{{remind.text}}</span>
+
+                        <div class="file-panel">
+                            <label>cert_pem:</label>
+                            <input type="file" id="cert_pem_input" name="cert_pem" value="浏览"/>
+                        </div>
+                        <div class="file-panel">
+                            <label>key_pem:</label>
+                            <input type="file" id="key_pem_input" name="key_pem" value="浏览"/>
+                        </div>
+                        <!--<label>应用SDK:</label>-->
+
+                        <!--<div class="file-panel">-->
+                            <!--<label>ios_zip:</label>-->
+                            <!--<input type="file" id="ios_zip_input" name="ios_zip" value="浏览"/>-->
+                        <!--</div>-->
+                    </div>
+                </div>
+                <div id="androidDiv">
+                    <div>
+                        <label class="padding_right">应用包名:</label>
+                        <input type="text" id="apppackge-name" ng-model="package" placeholder="如:com.chinaNet.demo"/>
+                    </div>
+                    <!--<div>-->
+                        <!--<label>应用SDK:</label>-->
+                        <!--<div class="file-panel">-->
+                            <!--<label>android_test_zip:</label>-->
+                            <!--<input type="file" id="android_test_zip_input" name="android_test_zip" value="浏览"/>-->
+                        <!--</div>-->
+                        <!--<div class="file-panel">-->
+                            <!--<label>android_zip:</label>-->
+                            <!--<input type="file" id="android_zip_input" name="android_zip" value="浏览"/>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                </div>
+            </div>
+        </div>
+    <!--</form>-->
+</div>

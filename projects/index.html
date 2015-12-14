@@ -1,0 +1,289 @@
+<!doctype html>
+<html class="no-js" xmlns="http://www.w3.org/1999/html">
+<link rel="shortcut icon" type="image/x-icon" href="images/page_icon.png" media="screen"/>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="bower_components/angular.treeview/css/angular.treeview.css"/>
+    <link rel="stylesheet" href="bower_components/angular-bootstrap-nav-tree/dist/abn_tree.css"/>
+    <link rel="stylesheet" href="bower_components/angular-datepicker/dist/index.min.css"/>
+    <link rel="stylesheet" href="styles/page.css"/>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="styles/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+
+    <link rel="stylesheet" href="styles/apppage.css">
+
+
+</head>
+<body ng-app="logApp" ng-controller="RootCtrl" >
+<div class="pagescreen">
+    <!-- Add your site or application content here -->
+    <div data-ng-cloak="" id='header' class="no-print" ng-hide="isSpecificPage()" style="position:fixed">
+        <section data-ng-include=" 'views/header.html' " class="top-header"></section>
+    </div>
+    <div id="wrapper" >
+        <!-- Sidebar -->
+        <!--<div id="show_sidebar_btn" style="display: none"></div>-->
+        <div id="show_sidebar_btn"  ng-show="show_sidebar" ng-click="sidebar_show()" ng-hide="isSpecificPage()"></div>
+        <div id="sidebar-wrapper" ng-controller="AbnTestController"  ng-hide="isSpecificPage()" >
+            <div >
+                <div >
+                    <nav id="spy">
+                        <abn-tree tree-data="treeData" tree-control="AbnTestController"
+                                  on-select="treeHandler(branch)"
+                                  icon-expand="plus"
+                                  icon-collapse="minus"
+                                  expand-level="2"
+                                  initial-selection="Granny"></abn-tree>
+                    </nav>
+                </div>
+
+            <div id="home"   ng-click="sidebar_hide()" ng-hide="isSpecificPage()">
+                <!--<a id="menu-toggle" href="script:void(0)" class="btn-menu toggle">-->
+
+                   <!--<a id="menu-toggle" class="btn-menu toggle" ng-click="sidebar_hide()" > </a>-->
+
+
+            </div>
+            </div>
+        </div>
+
+        <!-- Page content -->
+        <div id="page-content-wrapper">
+            <div ng-view=""></div>
+
+        </div>
+    </div>
+
+    <div class="footer">
+        <span> Copyright@2015 Perfect World Co. Ltd All tights reserved V {{version}} 更新时间:{{systemUpdateTime}}</span>
+    </div>
+</div>
+
+<!-- 浮动弹出框 -->
+<div class="alertmask" style="display: none">
+
+</div>
+<div class="bigLoading">
+</div>
+<div id="alertBox" style="display: none;">
+    <div class="alertbox">
+        <div style="margin:40px 0">
+            <div style="margin:50px 0" id="alertText"></div>
+        </div>
+        <div style="position: absolute;bottom: 15px;left: 0;right: 0;">
+            <input type="button" value="是" class="alertbutton"
+                   id="alertYes">
+            <input type="button" value="否" class="alertbutton" id="alertNo">
+        </div>
+    </div>
+</div>
+
+
+<div class="ajaxLoading"
+     style="position:fixed;left: 50%;top:50%;margin-left:-12px;margin-top:-12px;z-index:1000;display:none">
+    <img src="images/loading.gif"></div>
+</div>
+<!-- 浮动弹出框 -->
+
+
+<div class="alertframe" style="display:none">
+
+    <span style="font-size: 22px;position:relative;top:20px;">title</span>
+    <img class="pageLoading" src="images/loading.gif"
+         style="position: absolute;left: 50%;top: 50%;margin-top: -12px;margin-left: -12px;z-index:1000"/>
+
+    <div class="frameDiv">
+
+
+    </div>
+
+    <input type="button" value="关闭" style="position:absolute;left:50%;margin-left:-32px;bottom:20px;width:65px;"
+           onclick="$('.alertframe').hide()">
+
+</div>
+<script src="scripts/controllers/URL.js"></script>
+
+<!--[if lt IE 9]>
+<script src="bower_components/es5-shim/es5-shim.js"></script>
+<script src="bower_components/json3/lib/json3.js"></script>
+<![endif]-->
+<!-- endbuild -->
+
+<!-- build:js(.) scripts/vendor.js -->
+<!-- bower:js -->
+<!--<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>-->
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/angular/angular.min.js"></script>
+
+<script src="bower_components/underscore/underscore-min.js"></script>
+
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+<script src="bower_components/angular-resource/angular-resource.min.js"></script>
+<script src="bower_components/angular-route/angular-route.min.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+<script src="bower_components/angular-touch/angular-touch.min.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+<script src="bower_components/angular-animate/angular-animate.min.js"></script>
+<script src="scripts/widget/abn_tree_directive.js"></script>
+<script src="scripts/widget/scrollDiv.js"></script>
+<script type="text/javascript" src="scripts/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+<script type="text/javascript" src="scripts/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
+
+<script src="bower_components/angular.treeview/angular.treeview.min.js"></script>
+<script src="bower_components/angular-datepicker/dist/index.min.js"></script>
+<script src="bower_components/checklist-model/checklist-model.js"></script>
+<script src="bower_components/ng-file-upload/angular-file-upload-shim.min.js"></script>
+<script src="bower_components/ng-file-upload/angular-file-upload.min.js"></script>
+<script type="text/javascript" src="editor/ueditor.config.js"></script>
+<script type="text/javascript" src="editor/ueditor.all.js"></script>
+<script type="text/javascript" src="bower_components/angular-ueditor/dist/angular-ueditor.min.js"></script>
+<script src="bower_components/bootbox/bootbox.js"></script>
+
+<!-- endbower -->
+
+
+<script src="scripts/app.js"></script>
+<script src="scripts/router.js"></script>
+<script src="scripts/bootbox.js"></script>
+<!----  业务js               ----->
+
+
+<script src="scripts/controllers/main.js"></script>
+<script src="scripts/controllers/header.controller.js"></script>
+<script src="scripts/controllers/code.controller.js"></script>
+<script src="scripts/controllers/log.controller.js"></script>
+<script src="scripts/controllers/root.controller.js"></script>
+<script src="scripts/controllers/nav.controller.js"></script>
+<script src="scripts/controllers/userList.controller.js"></script>
+<script src="scripts/controllers/auth.controller.js"></script>
+
+<script src="scripts/controllers/dialog.controller.js"></script>
+
+<script src="scripts/controllers/about.js"></script>
+<script src="scripts/controllers/test.controller.js"></script>
+<script src="scripts/controllers/addOperator.controller.js"></script>
+<script src="scripts/controllers/appAdd.controller.js"></script>
+<script src="scripts/controllers/appDetails.controller.js"></script>
+<script src="scripts/controllers/appEdited.controller.js"></script>
+<script src="scripts/controllers/appList.controller.js"></script>
+<script src="scripts/controllers/newMessages.controller.js"></script>
+<script src="scripts/controllers/operatorDetails.controller.js"></script>
+<script src="scripts/controllers/operatorEdited.controller.js"></script>
+<script src="scripts/controllers/operatorInformation.controller.js"></script>
+<script src="scripts/controllers/operatorManage.controller.js"></script>
+<script src="scripts/controllers/messagesList.controller.js"></script>
+<script src="scripts/controllers/messagesList.controller.js"></script>
+<script src="scripts/controllers/transmitDetails.controller.js"></script>
+<script src="scripts/controllers/messageUserList.controller.js"></script>
+<script src="scripts/controllers/updatePassword.controller.js"></script>
+
+<!-- server js-->
+<script src="scripts/services/auth.js"></script>
+<script src="scripts/services/interface.js"></script>
+<script src="scripts/services/user.js"></script>
+<script src="scripts/services/domStyle.js"></script>
+<script src="scripts/services/domStyle.js"></script>
+
+
+
+
+<!-- add new app select system type js -->
+<script type="text/javascript" src="scripts/deviceInformation.js"></script>
+
+
+
+<script>
+    function alertln(text) {
+        $(".ajaxLoading").hide();
+        $("#alertBox").hide();
+        $("#alertText").html(text);
+        $("#alertYes").val("确定");
+        $("#alertYes").unbind('click');
+        $("#alertYes").click(function () {
+            $("#alertBox").hide();
+            $(".alertmask").hide();
+        });
+        $("#alertNo").hide();
+        $(".alertmask").show();
+        $("#alertBox").show();
+    }
+    function confirmln(text, func) {
+        $(".ajaxLoading").hide();
+        $("#alertBox").hide();
+        $("#alertText").html(text);
+        $("#alertYes").val("是");
+        $("#alertNo").val("否");
+        $("#alertYes").click(function () {
+            if (typeof func == 'function') {
+                func();
+                $("#alertYes").unbind('click');
+            }
+            $("#alertBox").hide();
+            $(".alertmask").hide();
+        });
+        $("#alertNo").click(function () {
+            $("#alertBox").hide();
+            $(".alertmask").hide();
+        });
+        $("#alertNo").show();
+        $(".alertmask").show();
+        $("#alertBox").show();
+    }
+    function frameShow(title, context, width, height) {
+        $('.alertframe').find('div').html('');
+        $('.alertframe').find('span').text(title);
+        if (context  instanceof HTMLElement) {
+            $('.alertframe').find('div').append(context);
+        } else if (typeof context == 'string') {
+            $('.alertframe').find('div').html(context);
+        }
+        if (width) {
+            $('.alertframe').css({width: width + '%', left: (100 - width) / 2 + '%'});
+        }
+        if (height) {
+            $('.alertframe').css({height: height + '%', top: (100 - height) / 2 + '%'});
+        }
+        $('.alertframe').show();
+    }
+    document.resizeFuncList = [];
+    $(window).load(function () {
+        $('.pagescreen').show();
+        $(".alertmask").hide();
+        $(".bigLoading").hide();
+        var spy = document.getElementById('spy');
+        scrollDiv(spy, (window.innerHeight - 90));
+        document.resizeFuncList.push(function () {
+            var nowHeight = window.innerHeight - 90;
+            scrollDiv.windowChange(nowHeight);
+        });
+
+    });
+    window.onresize = function () {
+        for (var i = 0; i < document.resizeFuncList.length; i++) {
+            if (typeof document.resizeFuncList[i] == 'function') {
+                document.resizeFuncList[i]();
+            }
+        }
+    }
+
+
+</script>
+
+</body>
+</html>

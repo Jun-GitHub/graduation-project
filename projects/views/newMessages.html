@@ -1,0 +1,79 @@
+<div id="newMessage-page">
+    <form action="" name="newMessageForm">
+        <div class="submitMs">
+            <input type="button" id="submitMs" class="btn btn-default btn-sm" value="确定" ng-click="submit()"/>
+        </div>
+        <div id="newMessage-content">
+
+            <div class="newMessage">
+                <label for="targetApp">目标应用</label>
+                <select size="1" id="targetApp" ng-click="selectApp()" ng-model="selected"
+                        ng-options="app.appName for app in appList">
+                    <option value="">-- 请选择 --</option>
+                </select>
+            </div>
+            <div class="newMessage">
+                <label for="infoTitle">消息名称</label>
+                <input type="text" id="infoTitle" placeholder="请输入消息名称" ng-click="selectApp()" ng-model="title.text"
+                       required/>
+            </div>
+            <div class="newMessage">
+                <label for="infoContent">消息内容</label>
+                <input type="text" id="infoContent" placeholder="请输入消息内容" ng-click="selectApp()" ng-model="content.text" required/>
+            </div>
+            <div class="newMessage">
+                <label for="image_png_input">推送图片</label>
+                <input type="file" id="image_png_input" name="image_png" value="浏览"/>
+                <span>(选填)</span>
+            </div>
+            <div class="newMessage">
+                <label for="articleId">文章的ID</label>
+                <input type="text" id="articleId" placeholder='请输入文章的ID' ng-model="articleID" charset="UTF-8"/>
+                <span>(选填)</span>
+            </div>
+
+            <div class="newMessage">
+                <label>发送类型</label>
+                <input type="radio" name="sendType" value="immediately" ng-model="sendType.value" ng-click="hide()"
+                       checked/>立即发送 &nbsp;&nbsp;
+                <input type="radio" name="sendType" value="timer" ng-model="sendType.value" ng-click="show()"/>定时发送
+                &nbsp;&nbsp;
+                <!--  <input type="radio" id="sendloop" name="sendType" value="循环发送" onclick="sendloop()" />循环发送
+          -->
+            </div>
+            <div class="newMessage">
+                <label>设备类型</label>
+                <input type="checkbox" id="ios" ng-model="ios"/>ios &nbsp;&nbsp;
+                <input type="checkbox" id="android" ng-model="android"/>android
+            </div>
+            <div id="send-time" ng-show="visible">
+                <div class="time_label">请选择一个时间:</div>
+                <!--<input type="text" id="startTime" ng-model="startTime.value">-->
+                <div class="send-time">
+                    <div class="input-group date form_datetime col-md-5" data-date="1979-09-16T05:25:07Z"
+                         data-date-format="yyyy-mm-dd hh:ii:ss" data-link-field="startTime">
+                        <input class="form-control" size="16" type="text" value="" ng-model="startTime.value" readonly>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                    </div>
+                    <input type="hidden" id="startTime" value=""/>
+                    <!--<label for="startTime">(可手动输入) </label>-->
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $('.form_datetime').datetimepicker({
+
+                format: 'yyyy-mm-dd hh:ii:ss',
+                autoclose: true,
+                todayBtn: true,
+                pickerPosition: "bottom-left"
+            });
+
+        </script>
+
+    </form>
+</div>
+
+
+

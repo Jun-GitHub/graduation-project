@@ -1,0 +1,59 @@
+<div id="transmitDetails-page">
+    <div class="transmitDetails" id="transmitDetails-content">
+        <!--<div class="tansmitdetails" >-->
+
+
+        <!--<label for='datetime'>请选择一个时间: </label>-->
+        <!--<input type="text" id='datetime' ng-model="sendTime" value="{{senDetail.sendTime}}"/>-->
+        <!--<label for='datetime'>(可手动输入) </label>-->
+        <!--</div>-->
+        <div class="transmitDetails">
+            <label for="iosSum">iOS应发送条数:</label>
+            <input type="text" id="iosSum" value="{{infoCount.push_count_should_ios}}" readonly/>
+        </div>
+        <div class="transmitDetails">
+            <label for="androidSum">android应发送条数:</label>
+            <input type="text" id="androidSum" value="{{infoCount.push_count_should_android}}" readonly/>
+        </div>
+        <div class="transmitDetails">
+            <label for="sum">总应发送条数:</label>
+            <input type="text" id="sum" value="{{infoCount.push_count_should}}" readonly/>
+        </div>
+        <div class="transmitDetails">
+            <label for="iosSuccessSum">iOS发送成功条数:</label>
+            <input type="text" id="iosSuccessSum" value="{{infoCount.push_count_ios}}"  readonly/>
+        </div>
+        <div class="transmitDetails">
+            <label for="androidSuccessSum">android发送成功条数:</label>
+            <input type="text" id="androidSuccessSum" value="{{infoCount.push_count_android}}"  readonly/>
+        </div>
+        <div class="transmitDetails">
+            <label for="iosFailSum">iOS发送失败条数:</label>
+            <input type="text" id="iosFailSum" value="{{infoCount.push_failed_count_ios}}" readonly/>
+        </div>
+        <div class="transmitDetails">
+            <label for="androidFailSum">android发送失败条数:</label>
+            <input type="text" id="androidFailSum" value="{{infoCount.push_failed_count_android}}"  readonly/>
+        </div>
+        <div class="transmitDetails">
+            <label >errorInfo_ios:</label>
+            <input type="text"  value="{{infoCount.errorInfo_ios}}"  readonly/>
+        </div>
+        <div class="tansmitdetails">
+            <label >errorInfo_android:</label>
+            <input type="text"  value="{{infoCount.errorInfo_android}}"  readonly/>
+        </div>
+        <div class="transmitDetails">
+            <label for="startTime">开始发送时间:</label>
+            <input type="datetime" id="startTime" value="{{infoCount.startTime | date:'yyyy-MM-dd HH:mm:ss'}}"
+                   readonly/>
+        </div>
+        <div class="transmitDetails">
+            <label for="endTime">结束发送时间:</label>
+            <input type="datetime" id="endTime" value="{{infoCount.push_endTime | date:'yyyy-MM-dd HH:mm:ss'}}"
+                   readonly/>
+        </div>
+    </div>
+</div>
+
+

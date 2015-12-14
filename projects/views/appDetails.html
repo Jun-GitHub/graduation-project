@@ -1,0 +1,49 @@
+<div id="appDetails-content">
+    <!--<div id="header-logo"></div>-->
+
+    <table class="appDetails-table">
+        <tr class="appDetails">
+            <td>应用名称:</td>
+            <td><input type="text" value="{{app.appName}}" readonly></td>
+
+        </tr>
+        <tr class="appDetails">
+            <td>应用icon图:</td>
+            <td>
+
+                <div id="imageView_container">
+                    <img src={{app.imageUrl}} id="appicon"/>
+                </div>
+
+            </td>
+
+        </tr>
+        <tr class="appDetails">
+            <td>创建时间:</td>
+            <td><input type="text" value="{{app.createTime | date:'yyyy-MM-dd HH:mm:ss'}}" readonly/></td>
+
+        </tr>
+        <tr class="appDetails">
+            <td>修改时间:</td>
+            <td><input type="text" value="{{app.updateTime | date:'yyyy-MM-dd HH:mm:ss'}}" readonly/></td>
+
+        </tr>
+        <tr class="appDetails">
+            <td>应用描述:</td>
+            <td><input type="text" value="{{app.appDescription}}" readonly/></td>
+
+        </tr>
+        <tr class="appDetails">
+            <td>版本类型:</td>
+            <td>
+                <input type="checkbox" id="ios" name="deviceType" ng-model="iosCheckbox" value="ios" disabled/>ios
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="checkbox" id="android" name="deviceType" ng-model="androidCheckbox" value="android"
+                       disabled/>android
+            </td>
+    </table>
+
+</div>
+<script>
+
+</script>

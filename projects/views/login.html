@@ -1,0 +1,89 @@
+<div>
+
+    <div class="page-signin" style="position:fixed;left:0%;right:0%;height:460px;top:50%;margin-top: -270px;"
+         ng-keypress="enter($event)">
+        <div class="">
+        </div>
+
+        <div class="loginbackground">
+            <div style="width:320px;height:280px;margin-left:auto;margin-right:auto;position:relative;top:35px;">
+                <div class="signin-header">
+                    <div class="">
+                        <img src="images/loading.gif" class="loadingImg lodingIcon18px"
+                             style="position:relative;top:-6px;"/>
+                        <span style="color:#fff;font-size:24px;font-weight:bold;line-height: 60px;">{{systemNickName}}</span>
+                    </div>
+                </div>
+
+                <div class="signin-body">
+                    <div class="container">
+                        <div class="form-container">
+
+                            <form class="form-horizontal">
+                                <fieldset>
+                                    <div class="form-group">
+                                        <div class="input-group input-group-lg input-div">
+                                        <span class="input-span">
+                                            <img src="images/user_icon.png">
+                                        </span>
+                                            <input type="text" class="input-transparent"
+                                                   class="form-control"
+                                                   ng-model="loginForm.username"
+                                                   placeholder="输入用户名"
+                                                    >
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group input-group-lg input-div">
+                                        <span class="input-span">
+                                            <img src="images/password_icon.png">
+                                        </span>
+                                            <input type="password" class="input-transparent"
+                                                   class="form-control"
+                                                   ng-model="loginForm.password"
+                                                   placeholder="输入密码"
+                                                    >
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                    </div>
+
+                                    <div style="position:absolute;top:187px;">
+                                        <input type="checkbox" ng-change="removeLoginInfo()"
+                                               ng-model="loginForm.remember"/>
+                                        <span style="font-weight: bold;color:#fff">记录密码</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="loginbtn def" ng-click="login()">登录</div>
+
+                                    </div>
+                                </fieldset>
+                            </form>
+                            <!--<section>-->
+                            <!--<p class="text-center"><a href="#/pages/forgot">Forgot your password?</a></p>-->
+                            <!--<p class="text-center text-muted text-small">Don't have an account yet? <a href="#/pages/signup">Sign up</a></p>-->
+                            <!--</section>-->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('#sidebar-wrapper').hide();
+
+    $(".loginbtn").mouseover(function (e) {
+        e.target.className = "loginbtn over";
+    });
+    $(".loginbtn").mouseout(function (e) {
+        e.target.className = "loginbtn def";
+    });
+    $(".loginbtn").mousedown(function (e) {
+        e.target.className = "loginbtn down";
+    });
+    $(".loginbtn").mouseup(function (e) {
+        e.target.className = "loginbtn def";
+    });
+</script>

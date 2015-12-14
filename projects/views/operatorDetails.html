@@ -1,0 +1,24 @@
+<div id="userdetails-page" class="modal-content">
+    <div id="userdetails-content">
+        <div class="userdetails">
+
+            <label for="userName">用&nbsp;&nbsp;户&nbsp;&nbsp;名:</label>
+            <input type="text" id="userName" value="{{operator.username}}" readonly>
+        </div>
+
+        <div class="userdetails">
+
+            <label for="password">用户密码:</label>
+            <input type="text" id="password" value="{{operator.password}}" readonly/>
+        </div>
+        <div class="userdetails">
+
+            <label for="openAdmin">开&nbsp;&nbsp;户&nbsp;&nbsp;人:</label>
+            <input type="text" id="openAdmin" value="{{operator.inviter}}" readonly/>
+        </div>
+        <div class="userdetails">
+            <label for="openTime">添加时间:</label>
+            <input type="text" id="openTime" value="{{operator.createTime | date:'yyyy-MM-dd HH:mm:ss'}}" readonly/>
+        </div>
+    </div>
+</div>

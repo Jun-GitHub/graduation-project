@@ -1,0 +1,231 @@
+/**
+ * Created by HJ-PC on 15/8/20.
+ */
+
+/*appList.html样式*/
+
+#page-content {
+    margin: 0 auto;
+    text-align: center;
+    width: 99.8%;
+}
+
+
+#app-list {
+    margin: 8px auto;
+    width: 100%;
+    height: auto;
+    border: solid 1px silver;
+    text-align: center;
+}
+#app-list th{
+    padding: 3px;
+    height: 40px;
+    border: solid 1px silver;
+    text-align: center;
+}
+#app-list td{
+    padding: 3px;
+    height: 25px;
+    border: solid 1px silver;
+    text-align: center;
+}
+
+
+
+
+
+.list-unstyled li {
+    list-style-type: none;
+}
+
+.list-unstyled li {
+    display: inline-block;
+}
+
+#addApp {
+    display: inline-block;
+}
+
+#addApp-image {
+    width: 20px;
+    height: 20px;
+}
+
+.dropdown-menu li {
+    display: block;
+}
+
+.Icon{
+    width: 25px;
+    height: 25px;
+}
+.black_overlay {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 1001;
+    -moz-opacity: 0.8;
+    opacity: .80;
+    filter: alpha(opacity=88);
+}
+
+.white_content {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 450px;
+    height: 300px;
+    padding: 20px;
+    border: 10px solid orange;
+    background-color: white;
+    z-index: 1002;
+    overflow: auto;
+    font-size: 20px;
+}
+#light button{
+     width: 150px;
+     margin: 5px;
+ }
+#light input{
+    margin-top: 15px;
+    width: 100px;
+}
+#none_replace{
+    color: red;
+}
+
+
+/*appAdd.html,appedited.html样式*/
+
+#appAdd-content,#appEdit-content{
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    font-weight: normal;
+    font-family: Arial;
+}
+#appAdd,#appEdit{
+    margin: 0 auto;
+    width: 500px;
+    text-align: center;
+}
+
+#appAdd-table {
+    padding: 5px;
+    text-align: center;
+}
+.padding_table{
+    padding-right: 100px;
+}
+/*#header-logo {*/
+    /*width: 322px;*/
+    /*height: 88px;*/
+    /*background-image: url("../images/login_logo.png");*/
+/*}*/
+
+.appAdd-td, .appEdit-td {
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 150px;
+}
+.padding_right{
+    padding-right: 15px;
+}
+.label-td {
+    text-align:left;
+    padding: 5px;
+    width: 90px;
+}
+
+#deviceInformation {
+
+    text-align: left;
+}
+
+#deviceInformation div {
+    padding: 5px;
+}
+
+#iosDiv, #androidDiv {
+    width: 350px;
+    display: none;
+    padding: 5px;
+    text-align: left;
+}
+
+#androidDiv_add, #iosDiv_add {
+    width: 350px;
+    display: none;
+    padding: 5px;
+    text-align: left;
+}
+
+#imageView_container, #scanicon {
+    padding: 5px;
+
+}
+
+#scanicon, {
+    text-align: center;
+    width: 150px;
+    margin: 0 auto;
+}
+
+.file-panel {
+    padding: 5px;
+    width: 400px;
+    text-align: left;
+    text-indent: 3em;
+
+}
+label{
+    font-weight: normal;
+}
+#cert_pem_input, #key_pem_input, #test_cert_pem_input, #test_key_pem_input {
+    width: 150px;
+    display: inline;
+}
+#ios_zip_input,#ios_test_zip_input,#android_zip_input,#android_test_zip_input{
+    width: 150px;
+    display: inline;
+}
+
+#get-appicon {
+    width: 150px;
+    height: 25px;
+    display: inline;
+}
+
+#appicon {
+    width: 80px;
+    height: 80px;
+}
+
+.radio {
+    display: inline-block;
+}
+.submitApp{
+    width: 100%;
+    text-align: right;
+}
+#submitApp,#submitAppEdit{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-right: 30px;
+}
+#apppackge-name{
+   margin-left: 10px;
+}
+#systemType{
+    text-align: left;
+   padding-left: 5px;
+}
+#edit_appName{
+    border: none;
+    text-align: center;
+}

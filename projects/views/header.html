@@ -1,0 +1,29 @@
+<header id='header' class="clearfix" style="" ng-controller="appListCtrl">
+
+    <!-- Logo -->
+
+    <div class="largelogo" onclick="document.alignSelect('list_notice')">
+
+    </div>
+    <div id="session" class="midsize hcenter" >
+        账号名称:&nbsp;&nbsp;{{userName}}
+    </div>
+    <div ng-click="confirmLogout()" class="divbtn midsize hcenter right25">退出</div>
+    <!-- needs to be put after logo to make it working-->
+    <div class="menu-button" toggle-off-canvas>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </div>
+
+    <div class="top-nav">
+        <ul class="nav-left list-unstyled">
+            <li>
+                <a href="#/" data-toggle-min-nav
+                   class="toggle-min"><i class="fa fa-bars"></i></a>
+            </li>
+        </ul>
+
+    </div>
+
+</header>

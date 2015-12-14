@@ -1,0 +1,86 @@
+<div id="messagesList-page">
+    <div ng-show="isLoading" class="bigLoading"></div>
+    <div class="margin_right">
+
+        <div class="search">
+            <input type="search" class="" ng-model="query" placeholder="输入想要查找的内容">
+
+            <div class="btn-group">
+                <button class="divbtn btn-sm" data-toggle="dropdown">
+                    {{type_name}}
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="" ng-click="type = '_id'; type_name='消息id'">消息id</a></li>
+                    <li><a href="" ng-click="type = 'name'; type_name='消息名称'">消息名称</a></li>
+                    <li><a href="" ng-click="type = 'systemType'; type_name='设备类型'">设备类型</a></li>
+                    <li><a href="" ng-click="type = 'sendType_zh'; type_name='发送类型'">发送类型</a></li>
+                    <li><a href="" ng-click="type = 'sendStatus'; type_name='发送状态'">发送状态</a></li>
+                    <li><a href="" ng-click="type = 'appName'; type_name='应用名称'">应用名称</a></li>
+                </ul>
+            </div>
+            <button class="divbtn btn-sm" data-toggle="dropdown" ng-click="search()">搜索</button>
+            <div id="addInfo">
+                <a href="javascript:void(0)" ng-click="jumpToUrl('/newMessages')">
+                    <input type="button" class="divbtn btn-sm" data-toggle="dropdown" id="addInfobtn" value="新增消息"/>
+                </a>
+            </div>
+        </div>
+
+    </div>
+    <div class="messagesList-page">
+        <table id="messages-list" class="webUi-table">
+            <thead>
+            <tr>
+                <th>消息id</th>
+                <th>消息名称</th>
+                <th>消息内容</th>
+                <th>创建时间</th>
+                <th>应用名称</th>
+                <th>设备类型</th>
+                <th>发送类型</th>
+                <!--<th>Android</th>-->
+                <!--<th>iOS</th>-->
+                <th>发送状态</th>
+                <th>操作</th>
+                <th>删除</th>
+                <th>发送详情</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="info in infoList">
+                <td class="td-text">{{info._id}}</td>
+                <td class="td-text">{{info.name}}</td>
+                <td class="td-text">{{info.message}}</td>
+                <td class="td-text">{{info.createTime | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+                <td class="td-text">{{info.appName}}</td>
+                <td class="td-text">{{info.systemType}}</td>
+                <td class="td-text">{{info.sendType_zh}}</td>
+                <!--<td class="td-text">{{info.sendStatus_android}}</td>-->
+                <!--<td class="td-text">{{info.sendStatus_ios}}</td>-->
+                <td class="td-text">{{info.sendStatus_zh}}</td>
+                <td><input type="button" class="cancel Operate" value="取消发送" ng-click="canceled(info._id,info.sendStatus_zh,info.idNum)"
+                           ng-disabled="isDisabled" ng-model="isDisabled"/></td>
+                <td><a href="javascript:void (0)" class="Operate" ng-click="deleteMessage(info._id);">删除</a></td>
+                <td><a href="#/transmitDetails?id={{info._id}}" class="Operate">详情</a></td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+
+</div>
+<nav class="table table-striped table-bordered input-page">
+    <div class="input-group">
+                <span class="input-group-addon input-page" style="align:center">
+                    <button class="btn btn-default btn-sm" ng-click="pageChange(1)">首页</button>
+                    <button class="btn btn-default btn-sm" ng-click="pageChange(searchParams.pageNum - 1)">上一页</button>
+                    <button class="btn btn-default btn-sm" ng-click="pageChange(searchParams.pageNum)">前往</button>
+                    第<input type="text" style="width: 50px" ng-model="searchParams.pageNum">/<!-- {{Math.ceil(count / searchParams.limit)}} -->{{searchParams.total}}页
+                    <button class="btn btn-default btn-sm" ng-click="pageChange(searchParams.pageNum + 1)">下一页</button>
+                    <!-- <button class="btn btn-default btn-sm" ng-click="pageChange(Math.ceil(count / searchParams.limit))">末页</button> -->
+                    <button class="btn btn-default btn-sm" ng-click="pageChange(searchParams.total)">末页</button>
+                </span>
+    </div>
+</nav>

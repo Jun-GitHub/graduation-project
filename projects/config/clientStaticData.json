@@ -1,0 +1,40 @@
+
+{
+  "systemNickName":"东亚手游后台管理系统",
+  "headLogoURL":"",
+  "loginLogoURL":"",
+  "name": "staticData",
+  "gameNameAndGameIds": [
+    {
+      "gameAppId": 1,
+      "gameName": "神鬼幻想",
+      "serverUrl":"http://www.google.com.cn"
+    },
+    {
+      "gameAppId": 2,
+      "gameName": "东邪西毒",
+      "serverUrl":"http://www.baidu.com"
+    },
+    {
+      "gameAppId": 3,
+      "gameName": "神魔大陆",
+      "serverUrl":"http://ceshifred.test.sdk.iwplay.com.tw/showConfig"
+    },
+    {
+      "gameAppId": 6,
+      "gameName": "魔力宝贝",
+      "serverUrl":"http://ceshifred.test.sdk.iwplay.com.tw/showConfig"
+    },
+    {
+      "search_gameAppId": 998,
+      "gameName": "ceshiFred",
+      "serverUrl":"http://ceshifred.test.sdk.iwplay.com.tw/showConfig"
+    }
+  ],
+  "serverUrl":{
+    "orderUrl":"http://data.sdk.iwplay.com.tw"
+  },
+
+
+  "version": "0.0.12"
+}
